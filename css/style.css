@@ -1,34 +1,79 @@
 body {
-  background-color: lightblue;
-  width: 100%;
-  height: 100%;
+  background-color: black;
 }
 div {
   background-image: url("https://traveltoparadise.com/wp-content/uploads/2016/12/Molokai-Seacliffs.jpg");
   background-repeat: no-repeat;
-  max-width: 100%;
-  height: auto;
+  background-size: cover;
+  width: 1440px;
+  height: 760px;
+  padding: 33px;
+  margin: 54px;
+  float: left;
 }
 
-h1{
-  text-align: right;
+header {
   border-style: dotted;
+  border-width: 13px;
+  width: 750px;
+  height: 88px;
+  padding: 15px;
+  margin: 15px;
 }
+
+h1 {
+    text-align: center;
+    font-size: 54px;
+}
+
 #contentA {
   background-color: black;
-  height: 20%;
-  width: 10%;
-  border-style: solid;
+  height: 25%;
+  width: 20%;
+  border: 5px solid lightcoral;
+  padding: 13px;
+  margin: 5px;
+  float: left;
+  font-size: 22px;
+  margin-left: 90px;
+  margin-top: 27px;
 }
 
 #contentB {
-  
+  background-color: black;
+  height: 25%;
+  width: 20%;
+  border: 5px solid lightcoral;
+  padding: 13px;
+  margin: 5px;
+  float: left;
+  font-size: 27px;
+  margin-left: 15px;
+    margin-top: 44px;
 }
 
 #contentC {
-  
+  background-color: black;
+  height: 25%;
+  width: 20%;
+  border: 5px solid lightcoral;
+  padding: 13px;
+  margin: 5px;
+    float: left;
+  font-size: 22px;
+    margin-left: 15px;
+    margin-top: 33px;
 }
 
 #contentD {
-  
+  background-color: black;
+  height: 15%;
+  width: 30%;
+  border: 5px solid lightcoral;
+  padding: 13px;
+  margin: 5px;
+  float: left;
+  font-size: 26px;
+    margin-left: 27px;
+    margin-top: 27px;
 }
