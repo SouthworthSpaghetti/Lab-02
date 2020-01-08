@@ -2,10 +2,10 @@
 
 var userName = prompt('What is your name?');
 var quizItemAnswerA = ['Anthony rides the ferry to work', 'YES', ''];
-var quizItemAnswerBb = ['NO', ''];
-var quizItemAnswerBa = ['YES', ''];
-var quizItemAnswerC = ['Yes', ''];
-var quizItemAnswerD = ['Yes', ''];
+var quizItemAnswerBb = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
+var quizItemAnswerBa = ['Anthony studied abroad in China', 'YES', ''];
+var quizItemAnswerC = ['Anthony works in Global Transportation', 'YES', ''];
+var quizItemAnswerD = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
 //ARRAY FOR ANSWERS?
 //var quizItemcontentA = 'Ferry';
 //var quizItemcontentBa = 'hen hau';
@@ -14,16 +14,15 @@ var quizItemAnswerD = ['Yes', ''];
 //var quizItemcontentD = 'Highest Sea Cliffs In The World';
 alert('Aloha, ' + userName + ', welcome to this website. Thank you for stopping by.');
 quizItemAnswerA[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswerA[0]);//CORRECT ANSWER IS: Y/YES
-quizItemAnswerBb[2] = prompt('Yes (Y)/No (N)--' + 'hen hau translates to very bad, in Mandarin');//CORRECT ANSWER IS: N/NO
-quizItemAnswerBa[2] = prompt('Yes (Y)/No (N)--' + 'Anthony studied abroad in China');//CORRECT ANSWER IS: Y/YES
-quizItemAnswerC[2] = prompt('Yes (Y)/No (N)--' + 'Anthony works in Global Transportation');//CORRECT ANSWER IS: Y/YES
-quizItemAnswerD[2] = prompt('Yes (Y)/No (N)--' + 'The Highest Sea Cliffs in the world are in Alaska');//CORRECT ANSWER IS: N/NO
+quizItemAnswerBb[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswerBb[0]);//CORRECT ANSWER IS: N/NO
+quizItemAnswerBa[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswerBa[0]);//CORRECT ANSWER IS: Y/YES
+quizItemAnswerC[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswerC[0]);//CORRECT ANSWER IS: Y/YES
+quizItemAnswerD[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswerD[0]);//CORRECT ANSWER IS: N/NO
 console.log(quizItemAnswerA);
-console.log(quizItemAnswerA.length);
-console.log(quizItemAnswerBb.length);
-console.log(quizItemAnswerBa.length);
-console.log(quizItemAnswerC.length);
-console.log(quizItemAnswerD.length);
+console.log(quizItemAnswerBb);
+console.log(quizItemAnswerBa);
+console.log(quizItemAnswerC);
+console.log(quizItemAnswerD);
 /*switch(quizItemAnswerA.toUpperCase()){
   case 'Y':
     alert("That's correct.");
