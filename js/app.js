@@ -1,7 +1,7 @@
 'use strict';
 
 var userName = prompt('What is your name?');
-var quizItemAnswerA = ['YES', ''];
+var quizItemAnswerA = ['Anthony rides the ferry to work', 'YES', ''];
 var quizItemAnswerBb = ['NO', ''];
 var quizItemAnswerBa = ['YES', ''];
 var quizItemAnswerC = ['Yes', ''];
@@ -13,12 +13,12 @@ var quizItemAnswerD = ['Yes', ''];
 //var quizItemcontentC = 'Global Transportation';
 //var quizItemcontentD = 'Highest Sea Cliffs In The World';
 alert('Aloha, ' + userName + ', welcome to this website. Thank you for stopping by.');
-quizItemAnswerA.push = prompt('Yes (Y)/No (N)--Anthony rides the ferry to work');//CORRECT ANSWER IS: Y/YES
-
-quizItemAnswerBb.push = prompt('Yes (Y)/No (N)--hen hau translates to very bad, in Mandarin');//CORRECT ANSWER IS: N/NO
-quizItemAnswerBa.push = prompt('Yes (Y)/No (N)--Anthony studied abroad in China');//CORRECT ANSWER IS: Y/YES
-quizItemAnswerC.push = prompt('Yes (Y)/No (N)--Anthony works in Global Transportation');//CORRECT ANSWER IS: Y/YES
-quizItemAnswerD.push = prompt('Yes (Y)/No (N)--The Highest Sea Cliffs in the world are in Alaska');//CORRECT ANSWER IS: N/NO
+quizItemAnswerA[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswerA[0]);//CORRECT ANSWER IS: Y/YES
+quizItemAnswerBb[2] = prompt('Yes (Y)/No (N)--' + 'hen hau translates to very bad, in Mandarin');//CORRECT ANSWER IS: N/NO
+quizItemAnswerBa[2] = prompt('Yes (Y)/No (N)--' + 'Anthony studied abroad in China');//CORRECT ANSWER IS: Y/YES
+quizItemAnswerC[2] = prompt('Yes (Y)/No (N)--' + 'Anthony works in Global Transportation');//CORRECT ANSWER IS: Y/YES
+quizItemAnswerD[2] = prompt('Yes (Y)/No (N)--' + 'The Highest Sea Cliffs in the world are in Alaska');//CORRECT ANSWER IS: N/NO
+console.log(quizItemAnswerA);
 console.log(quizItemAnswerA.length);
 console.log(quizItemAnswerBb.length);
 console.log(quizItemAnswerBa.length);
