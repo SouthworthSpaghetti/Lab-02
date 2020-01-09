@@ -9,6 +9,8 @@ console.log(x);
 var userName = prompt('What is your name?');//USER GREETING
 
 //QUIZ 1- 6 DETAILS; WHERE INDEX#2 IS RESERVED FOR USER INPUT
+
+
 var quizItemAnswer1 = ['Anthony rides the ferry to work', 'YES', ''];
 var quizItemAnswer2 = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
 var quizItemAnswer3 = ['Anthony studied abroad in China', 'YES', ''];
@@ -16,12 +18,24 @@ var quizItemAnswer4 = ['Anthony works in Global Transportation', 'YES', ''];
 var quizItemAnswer5 = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
 var quizItemAnswer6 = ['Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
 
+/*
+var quizItemAnswer = [];
+quizItemAnswer[1 - 1] = ['Anthony rides the ferry to work', 'YES', ''];
+quizItemAnswer[2 - 1] = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
+quizItemAnswer[3 - 1] = ['Anthony studied abroad in China', 'YES', ''];
+quizItemAnswer[4 - 1] = ['Anthony works in Global Transportation', 'YES', ''];
+quizItemAnswer[5 - 1] = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
+quizItemAnswer[6 - 1] = ['Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+console.log(quizItemAnswer);
+console.log(quizItemAnswer.length);
+
 //ARRAY ANSWERS TO BE <em> IN HTML DOCUMENT
 //var quizItemcontentA = 'Ferry';
 //var quizItemcontentBa = 'hen hau';
 //var quizItemcontentBb = 'China';
 //var quizItemcontentC = 'Global Transportation';
 //var quizItemcontentD = 'Highest Sea Cliffs In The World';
+*/
 
 var i = 1;//int counter for below code exit
 if (userName === ''){
@@ -32,6 +46,34 @@ if (userName === ''){
 }else{
   alert('Aloha, ' + userName + ', welcome to this website. Thank you for stopping by.');
 };
+
+/*
+//1 QUIZ QUESTION ARRAY ARRAY TEST LOOP
+for (var i = 0; i < quizItemAnswer.length; i++){
+  //console.log(i);
+  console.log(quizItemAnswer[[0, i]]);
+  //quizItemAnswer[[i][2]] = prompt('Yes (Y)/No (N)--' + quizItemAnswer[[i][0]]);//CORRECT ANSWER IS: Y/YES
+  //console.log(quizItemAnswer[[i][2]]);
+  //1 QUIZ RESULTS ALERT
+
+}
+/*
+  if (quizItemAnswer[i[1]].toUpperCase() === quizItemAnswer[i[2]].toUpperCase()) {
+    //console.log('sucessA');
+    masterCorrect++;
+    alert('Good job, you answered correctly.');
+  } else if (quizItemAnswer[i[1]].charAt(0).toUpperCase() === quizItemAnswer[i[2]].toUpperCase()) {
+    //console.log('sucessB');
+    masterCorrect++;
+    alert('Good job, you answered correctly.');
+  } else {
+    //console.log('bad');
+    alert('That was close! But incorrect.');
+  }
+
+
+//END QUIZ 1 ARRAY ARRAY TEST LOOP
+*/
 
 
 //1 QUIZ QUESTION
@@ -50,6 +92,7 @@ if (quizItemAnswer1[1].toUpperCase() === quizItemAnswer1[2].toUpperCase()) {
   alert('That was close! But incorrect.');
 }
 //END QUIZ 1
+
 
 //2 QUIZ QUESTION
 quizItemAnswer2[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer2[0]);//CORRECT ANSWER IS: N/NO
@@ -211,4 +254,4 @@ if (userName === '') {
   alert('Mahalo, you, thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7[0].valueOf() + ", " + quizItemAnswer7[1].valueOf() + ", " + quizItemAnswer7[2].valueOf() + ", " + quizItemAnswer7[3].valueOf() + ", " + quizItemAnswer7[4].valueOf() + ", " + quizItemAnswer7[5].valueOf() + ", " + quizItemAnswer7[6].valueOf() + ", " + quizItemAnswer7[7].valueOf() + ", " + quizItemAnswer7[8].valueOf() + ", " + quizItemAnswer7[9].valueOf() + ".");
   } else {
   alert('Mahalo, ' + userName + ', thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7[0].valueOf() + ", " + quizItemAnswer7[1].valueOf() + ", " + quizItemAnswer7[2].valueOf() + ", " + quizItemAnswer7[3].valueOf() + ", " + quizItemAnswer7[4].valueOf() + ", " + quizItemAnswer7[5].valueOf() + ", " + quizItemAnswer7[6].valueOf() + ", " + quizItemAnswer7[7].valueOf() + ", " + quizItemAnswer7[8].valueOf() + ", " + quizItemAnswer7[9].valueOf() + ".");
-};
+}
