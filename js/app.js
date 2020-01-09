@@ -170,13 +170,14 @@ var quizItemAnswer7 = ['STEAK SALAD', 'SMOKED SALMON', 'STRAWBERRIES', 'ICECREAM
 var inputResult = prompt('Try and guess one of my favorite foods!');
 quizItemAnswer7.push(inputResult)
 //5 QUIZ RESULTS ALERT
-var k = quizItemAnswer7.length;
+var k = quizItemAnswer7.length -1;
 console.log(inputResult);
 console.log(k);
-console.log(quizItemAnswer7[10]);
-if (quizItemAnswer7.includes === quizItemAnswer7[k].toUpperCase()) {
+console.log(quizItemAnswer7[9]);
+console.log(quizItemAnswer7[k].toUpperCase());
+if (quizItemAnswer7.includes(quizItemAnswer7[k].toUpperCase())) {
   //console.log('sucessA');
-  alert('Good job, you answered correctly.');
+  alert('Good job, you answered ' + ' correctly.');
 } /*else if (quizItemAnswer7[1].charAt(0).toUpperCase() === quizItemAnswer7[2].toUpperCase()) {
   //console.log('sucessB');
   alert('Good job, you answered correctly.');
