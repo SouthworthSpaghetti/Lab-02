@@ -16,7 +16,13 @@ var quizItemAnswer2 = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
 var quizItemAnswer3 = ['Anthony studied abroad in China', 'YES', ''];
 var quizItemAnswer4 = ['Anthony works in Global Transportation', 'YES', ''];
 var quizItemAnswer5 = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
-var quizItemAnswer6 = ['Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+//var quizItemAnswer6 = ['Guess a number between 0 and 100', x, ''];
+var quizItemAnswer6 = ['Guess a number between 0 and 100/' + x, x, ''];
+//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+
+
+
+
 
 /*
 var quizItemAnswer = [];
@@ -76,23 +82,48 @@ for (var i = 0; i < quizItemAnswer.length; i++){
 */
 
 
-//1 QUIZ QUESTION
-quizItemAnswer1[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer1[0]);//CORRECT ANSWER IS: Y/YES
-//1 QUIZ RESULTS ALERT
-if (quizItemAnswer1[1].toUpperCase() === quizItemAnswer1[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer1[1].charAt(0).toUpperCase() === quizItemAnswer1[2].toUpperCase()){
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else{
-  //console.log('bad');
-  alert('That was close! But incorrect.');
+//inputs: <<quizItemAnswer1[2]<guess>>> ,quizItemAnswer1[0]<statement>,quizItemAnswer1[1]<answer>
+function quizAsker(statement, answer){
+  var guess = prompt('Yes (Y)/No (N)--' + statement);//CORRECT ANSWER IS: Y/YES
+  if (answer.toUpperCase() === guess.toUpperCase()) {
+    //console.log('sucessA');
+    //masterCorrect++;
+    alert('Good job, you answered correctly.');
+  } else if (answer.charAt(0).toUpperCase() === guess.toUpperCase()){
+    //console.log('sucessB');
+    //masterCorrect++;
+    alert('Good job, you answered correctly.');
+  } else{
+    //console.log('bad');
+    alert('That was close! But incorrect.');
+  }
 }
-//END QUIZ 1
 
+
+quizAsker(quizItemAnswer1[0], quizItemAnswer1[1]);
+quizAsker(quizItemAnswer2[0], quizItemAnswer2[1]);
+quizAsker(quizItemAnswer3[0], quizItemAnswer3[1]);
+quizAsker(quizItemAnswer4[0], quizItemAnswer4[1]);
+quizAsker(quizItemAnswer5[0], quizItemAnswer5[1]);
+
+
+// //1 QUIZ QUESTION
+// quizItemAnswer1[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer1[0]);//CORRECT ANSWER IS: Y/YES
+// //1 QUIZ RESULTS ALERT
+// if (quizItemAnswer1[1].toUpperCase() === quizItemAnswer1[2].toUpperCase()) {
+//   //console.log('sucessA');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else if (quizItemAnswer1[1].charAt(0).toUpperCase() === quizItemAnswer1[2].toUpperCase()){
+//   //console.log('sucessB');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else{
+//   //console.log('bad');
+//   alert('That was close! But incorrect.');
+// }
+//END QUIZ 1
+/* morgan
 
 //2 QUIZ QUESTION
 quizItemAnswer2[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer2[0]);//CORRECT ANSWER IS: N/NO
@@ -162,25 +193,49 @@ if (quizItemAnswer5[1].toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
 }
 //END QUIZ 5
 
-//6 QUIZ QUESTION, WITH FOUR USER ATTEMPTS AT GUESSING THE RANDOM NUMBER STORED IN VARIABLE 'x'
-for(var j = 0; j < 4; j++){
-  quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS STORED IN VARIABLE 'x'
-  //6 QUIZ RESULTS ALERT
-  if (quizItemAnswer6[1] === quizItemAnswer6[2]) {
+*/ //morgan
+
+//takes in 2 parameters: quizItemAnswer6[2], quizItemAnswer6[1]
+function numberCompare(guess, targetNumber){
+  if ( targetNumber === guess) {
     //console.log('sucessA');
     masterCorrect++;
     j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
     alert('Good job, you (suprisingly) answered correctly.');
-  } else if (quizItemAnswer6[1] > quizItemAnswer6[2]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
+  } else if ( targetNumber > guess) {//ALERTS USER IF THEIR GUESS IS TOO LOW
     //console.log('sucessB');
     masterCorrect++;
     alert('Good guess, but your answer is too low.');
-  } else if (quizItemAnswer6[1] < quizItemAnswer6[2]){//ALERTS USER IF THEIR GUESS IS TOO HIGH
+  } else if ( targetNumber < guess){//ALERTS USER IF THEIR GUESS IS TOO HIGH
     //console.log('bad');
     alert('Good guess, but your answer is too high.');
   } else {
     alert('Please try and input a number, again.');//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
   }
+}
+
+
+//6 QUIZ QUESTION, WITH FOUR USER ATTEMPTS AT GUESSING THE RANDOM NUMBER STORED IN VARIABLE 'x'
+for(var j = 0; j < 4; j++){
+  quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS STORED IN VARIABLE 'x'
+
+  numberCompare(quizItemAnswer6[2], quizItemAnswer6[1]);
+  //6 QUIZ RESULTS ALERT
+  // if (quizItemAnswer6[1] === quizItemAnswer6[2]) {
+  //   //console.log('sucessA');
+  //   masterCorrect++;
+  //   j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
+  //   alert('Good job, you (suprisingly) answered correctly.');
+  // } else if (quizItemAnswer6[1] > quizItemAnswer6[2]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
+  //   //console.log('sucessB');
+  //   masterCorrect++;
+  //   alert('Good guess, but your answer is too low.');
+  // } else if (quizItemAnswer6[1] < quizItemAnswer6[2]){//ALERTS USER IF THEIR GUESS IS TOO HIGH
+  //   //console.log('bad');
+  //   alert('Good guess, but your answer is too high.');
+  // } else {
+  //   alert('Please try and input a number, again.');//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
+  // }
 }
 if (quizItemAnswer6[1] !== quizItemAnswer6[2]) {//AFTER ALL ATTEMPTS, ALERT USER OF CORRECT ANSWER
   alert('The correct answer is ' + x);
@@ -227,7 +282,19 @@ console.log(quizItemAnswer6);*/
 }*/
 
 //START QUIZ 7, WITH SIX USER ATTEMPTS AT GUESSING SOME FAVORITE FOODS HOUSED IN ARRAYS
-var quizItemAnswer7 = ['QUESADILLAS', 'STEAK SALAD', 'SMOKED SALMON', 'STRAWBERRIES', 'ICECREAM', 'OATMEAL COOKIES', 'TAMALES', 'POZOLE', 'BRATWURST', 'SHEPHERDS PIE'];
+
+/* morgan
+var quizItemAnswer7 = [
+  'QUESADILLAS',
+  'STEAK SALAD',
+  'SMOKED SALMON',
+  'STRAWBERRIES',
+  'ICECREAM',
+  'OATMEAL COOKIES',
+  'TAMALES',
+  'POZOLE',
+  'BRATWURST',
+  'SHEPHERDS PIE'];
 
 for (var i = 0; i < 7; i++) {
   var inputResult = prompt('Try and guess one of my favorite foods!');
@@ -251,7 +318,9 @@ console.log('masterCorrect after sum' + masterCorrect);
 
 //Greeting goodbye
 if (userName === '') {
-  alert('Mahalo, you, thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7[0].valueOf() + ", " + quizItemAnswer7[1].valueOf() + ", " + quizItemAnswer7[2].valueOf() + ", " + quizItemAnswer7[3].valueOf() + ", " + quizItemAnswer7[4].valueOf() + ", " + quizItemAnswer7[5].valueOf() + ", " + quizItemAnswer7[6].valueOf() + ", " + quizItemAnswer7[7].valueOf() + ", " + quizItemAnswer7[8].valueOf() + ", " + quizItemAnswer7[9].valueOf() + ".");
-  } else {
-  alert('Mahalo, ' + userName + ', thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7[0].valueOf() + ", " + quizItemAnswer7[1].valueOf() + ", " + quizItemAnswer7[2].valueOf() + ", " + quizItemAnswer7[3].valueOf() + ", " + quizItemAnswer7[4].valueOf() + ", " + quizItemAnswer7[5].valueOf() + ", " + quizItemAnswer7[6].valueOf() + ", " + quizItemAnswer7[7].valueOf() + ", " + quizItemAnswer7[8].valueOf() + ", " + quizItemAnswer7[9].valueOf() + ".");
+  alert('Mahalo, you, thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7.join(' ,') + '.');
+} else {
+  alert('Mahalo, ' + userName + ', thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7.join(' ,') + '.');
 }
+
+*/ //morgan 
