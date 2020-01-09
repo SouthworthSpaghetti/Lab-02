@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  color: whitesmoke;
 }
 div {
   background-image: url("https://traveltoparadise.com/wp-content/uploads/2016/12/Molokai-Seacliffs.jpg");
@@ -8,7 +9,6 @@ div {
   width: 1440px;
   height: 760px;
   padding: 33px;
-  margin: 54px;
   float: left;
 }
 
@@ -76,4 +76,11 @@ h1 {
   font-size: 26px;
     margin-left: 27px;
     margin-top: 27px;
+}
+
+hgroup {
+  position: relative;
+  float: left;
+  margin-left: 27px;
+  margin-top: -130px;
 }

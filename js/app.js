@@ -1,12 +1,18 @@
 'use strict';
 
 var i = 1;
+var x = Math.round(Math.random() * 99);
+//var y = Math.round(x);
+console.log(x);
+
 var userName = prompt('What is your name?');
 var quizItemAnswer1 = ['Anthony rides the ferry to work', 'YES', ''];
 var quizItemAnswer2 = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
 var quizItemAnswer3 = ['Anthony studied abroad in China', 'YES', ''];
 var quizItemAnswer4 = ['Anthony works in Global Transportation', 'YES', ''];
 var quizItemAnswer5 = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
+var quizItemAnswer6 = ['Guess a number between 0 and 100/' + x, x, ''];
+
 //ARRAY FOR ANSWERS?
 //var quizItemcontentA = 'Ferry';
 //var quizItemcontentBa = 'hen hau';
@@ -98,7 +104,22 @@ if (quizItemAnswer5[1].toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
 }
 //END QUIZ 5
 
-
+//6 QUIZ QUESTION
+quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS: Y/YES
+//6 QUIZ RESULTS ALERT
+if (quizItemAnswer6[1] === quizItemAnswer6[2]) {
+  //console.log('sucessA');
+  alert('Good job, you (suprisingly) answered correctly.');
+} else if (quizItemAnswer6[1] > quizItemAnswer6[2]) {
+  //console.log('sucessB');
+  alert('Good guess, but your answer is too low.');
+} else if (quizItemAnswer6[1] < quizItemAnswer6[2]){
+  //console.log('bad');
+  alert('Good guess, but your answer is too high.');
+}else{
+  alert('Please try and input a number, again.');
+}
+//END QUIZ 6
 
 
 
@@ -110,6 +131,7 @@ console.log(quizItemAnswer2);
 console.log(quizItemAnswer3);
 console.log(quizItemAnswer4);
 console.log(quizItemAnswer5);
+console.log(quizItemAnswer6);
 
 /*switch(quizItemAnswerA.toUpperCase()){
   case 'Y':
