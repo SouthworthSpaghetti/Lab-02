@@ -29,6 +29,7 @@ if (userName === ''){
   alert('Aloha, ' + userName + ', welcome to this website. Thank you for stopping by.');
 };
 
+/*
 //1 QUIZ QUESTION
 quizItemAnswer1[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer1[0]);//CORRECT ANSWER IS: Y/YES
 //1 QUIZ RESULTS ALERT
@@ -106,7 +107,7 @@ if (quizItemAnswer5[1].toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
 
 //6 QUIZ QUESTION
 for(var j = 0; j < 4; j++){
-  quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS: Y/YES
+  quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS STORED IN VARIABLE 'x'
   //6 QUIZ RESULTS ALERT
   if (quizItemAnswer6[1] === quizItemAnswer6[2]) {
     //console.log('sucessA');
@@ -126,6 +127,7 @@ if (quizItemAnswer6[1] !== quizItemAnswer6[2]) {
   alert('The correct answer is ' + x);
 }
 //END QUIZ 6
+*/
 
 
 
@@ -164,6 +166,27 @@ console.log(quizItemAnswer6);
   }else
     alert('That was close! But incorrect.');
 }*/
+var quizItemAnswer7 = ['STEAK SALAD', 'SMOKED SALMON', 'STRAWBERRIES', 'ICECREAM', 'OATMEAL COOKIES', 'TAMALES', 'POZOLE', 'BRATWURST', 'SHEPHERDS PIE'];
+var inputResult = prompt('Try and guess one of my favorite foods!');
+quizItemAnswer7.push(inputResult)
+//5 QUIZ RESULTS ALERT
+var k = quizItemAnswer7.length;
+console.log(inputResult);
+console.log(k);
+console.log(quizItemAnswer7[10]);
+if (quizItemAnswer7.includes === quizItemAnswer7[k].toUpperCase()) {
+  //console.log('sucessA');
+  alert('Good job, you answered correctly.');
+} /*else if (quizItemAnswer7[1].charAt(0).toUpperCase() === quizItemAnswer7[2].toUpperCase()) {
+  //console.log('sucessB');
+  alert('Good job, you answered correctly.');
+} else {
+  //console.log('bad');
+  alert('That was close! But incorrect.');
+}*/
+
+
+
 
 //Greeting goodbye
 if (userName === '') {
