@@ -20,7 +20,7 @@ var quizItemAnswer7 = ['OneOfMany', 'Try and guess one of my favorite foods!', O
 callQuiz(quizItemAnswer0);//Iniate quiz by passing array of Quiz Items
 
 function callQuiz(quizKeyArray){
-  var gameMeta = quizKeyArray[0];//Quiz Item 'gameMeta' confirms which of the four quizes relates to the Quiz Items
+  var gameMeta = quizKeyArray[0];//Quiz Item element0 'gameMeta' confirms which of the four quizes relates to the Quiz Items
   switch(gameMeta){
     case('Auth')://Quiz Item 'gameMeta' initiates the 'Auth' quiz type function
       Auth(quizKeyArray)
@@ -46,10 +46,9 @@ function callQuiz(quizKeyArray){
 
 function Auth(quizKeyArray){
   do {
-    var userName = prompt(quizKeyArray[0]);
-
-  } while ();
-  
+    quizKeyArray[3] = prompt(quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
+  } while (quizKeyArray[3] === '');
+  alert('Aloha, ' + quizKeyArray[3] + ', welcome to this website. Thank you for stopping by.');
 }//end Auth function
 
 function YesNo(quizKeyArray) {
@@ -83,17 +82,17 @@ console.log(quizItemAnswer.length);
 //var quizItemcontentBb = 'China';
 //var quizItemcontentC = 'Global Transportation';
 //var quizItemcontentD = 'Highest Sea Cliffs In The World';
-*/
+// */
 
-var i = 1;//int counter for below code exit
-if (userName === ''){
-  do{
-    var userName = prompt('What is your name? What do your friends call you??');
-    i++;
-  } while(i<2);
-}else{
-  alert('Aloha, ' + userName + ', welcome to this website. Thank you for stopping by.');
-};
+// var i = 1;//int counter for below code exit
+// if (userName === ''){
+//   do{
+//     var userName = prompt('What is your name? What do your friends call you??');
+//     i++;
+//   } while(i<2);
+// }else{
+//   alert('Aloha, ' + userName + ', welcome to this website. Thank you for stopping by.');
+// };//BRANCHFINAL
 
 /*
 //1 QUIZ QUESTION ARRAY ARRAY TEST LOOP
