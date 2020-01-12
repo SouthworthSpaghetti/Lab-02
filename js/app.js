@@ -17,28 +17,55 @@ var quizItemAnswer5 = ['YesNo', 'The Highest Sea Cliffs in the world are in Alas
 var quizItemAnswer6 = ['OneOfNumber', 'Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
 var quizItemAnswer7 = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
 
-callQuiz(quizItemAnswer0);
+callQuiz(quizItemAnswer0);//Iniate quiz by passing array of Quiz Items
 
 function callQuiz(quizKeyArray){
-  var gameMeta = quizKeyArray[0];
+  var gameMeta = quizKeyArray[0];//Quiz Item 'gameMeta' confirms which of the four quizes relates to the Quiz Items
   switch(gameMeta){
-    case('Auth'):
-    Auth(quizKeyArray)
-    break;
+    case('Auth')://Quiz Item 'gameMeta' initiates the 'Auth' quiz type function
+      Auth(quizKeyArray)
+      break;
+
+    case ('YesNo')://Quiz Item 'gameMeta' initiates the 'YesNo' quiz type function
+      YesNo(quizKeyArray)
+      break;
+
+    case ('OneOfNumber')://Quiz Item 'gameMeta' initiates the 'OneOfNumber' quiz type function
+      OneOfNumber(quizKeyArray)
+      break;
+
+    case ('OneOfMany')://Quiz Item 'gameMeta' initiates the 'OneOfMany' quiz type function
+      OneOfMany(quizKeyArray)
+      break;
 
     default:
       console.log('default')
-
-  }
-
-
-  gameMeta(quizKeyArray);
-}
+      break;
+  }//end callQuiz switch
+}//end callQuiz function
 
 function Auth(quizKeyArray){
+  do {
+    var userName = prompt(quizKeyArray[0]);
+
+  } while ();
+  
+}//end Auth function
+
+function YesNo(quizKeyArray) {
   console.log(quizKeyArray);
   return
-}
+}//end YesNo function
+
+function OneOfNumber(quizKeyArray) {
+  console.log(quizKeyArray);
+  return
+}//end OneOfNumber function
+
+function OneOfMany(quizKeyArray) {
+  console.log(quizKeyArray);
+  return
+}//end OneOfMany function
 
 // var quizItemAnswer = [];
 // quizItemAnswer[1 - 1] = ['Anthony rides the ferry to work', 'YES', ''];
