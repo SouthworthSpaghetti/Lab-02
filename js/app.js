@@ -3,29 +3,50 @@
 var masterCorrect = 0;//int counter for correct user input; added to arrayCorrect counter in Quiz 7, and to be presented at the final, closing alert
 var arrayCorrect = 0//arrayCorrect counter in Quiz 7
 var x = Math.round(Math.random() * 99);//RANDOM NUMBER GENERATOR
-//var y = Math.round(x);
-console.log(x);
+var OneOfManyArray = ['QUESADILLAS', 'STEAK SALAD', 'SMOKED SALMON', 'STRAWBERRIES', 'ICECREAM', 'OATMEAL COOKIES', 'TAMALES', 'POZOLE', 'BRATWURST', 'SHEPHERDS PIE'];
 
-var userName = prompt('What is your name?');//USER GREETING
+// var userName = prompt('What is your name?');//USER GREETING//BRANCHFINAL
 
 //QUIZ 1- 6 DETAILS; WHERE INDEX#2 IS RESERVED FOR USER INPUT
+var quizItemAnswer0 = ['Auth', 'What is your name?', '', ''];
+var quizItemAnswer1 = ['YesNo', 'Anthony rides the ferry to work', 'YES', ''];
+var quizItemAnswer2 = ['YesNo', 'hen hau translates to very bad in Mandarin', 'NO', ''];
+var quizItemAnswer3 = ['YesNo', 'Anthony studied abroad in China', 'YES', ''];
+var quizItemAnswer4 = ['YesNo', 'Anthony works in Global Transportation', 'YES', ''];
+var quizItemAnswer5 = ['YesNo', 'The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
+var quizItemAnswer6 = ['OneOfNumber', 'Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+var quizItemAnswer7 = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
+
+callQuiz(quizItemAnswer0);
+
+function callQuiz(quizKeyArray){
+  var gameMeta = quizKeyArray[0];
+  switch(gameMeta){
+    case('Auth'):
+    Auth(quizKeyArray)
+    break;
+
+    default:
+      console.log('default')
+
+  }
 
 
-var quizItemAnswer1 = ['Anthony rides the ferry to work', 'YES', ''];
-var quizItemAnswer2 = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
-var quizItemAnswer3 = ['Anthony studied abroad in China', 'YES', ''];
-var quizItemAnswer4 = ['Anthony works in Global Transportation', 'YES', ''];
-var quizItemAnswer5 = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
-var quizItemAnswer6 = ['Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+  gameMeta(quizKeyArray);
+}
 
-/*
-var quizItemAnswer = [];
-quizItemAnswer[1 - 1] = ['Anthony rides the ferry to work', 'YES', ''];
-quizItemAnswer[2 - 1] = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
-quizItemAnswer[3 - 1] = ['Anthony studied abroad in China', 'YES', ''];
-quizItemAnswer[4 - 1] = ['Anthony works in Global Transportation', 'YES', ''];
-quizItemAnswer[5 - 1] = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
-quizItemAnswer[6 - 1] = ['Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+function Auth(quizKeyArray){
+  console.log(quizKeyArray);
+  return
+}
+
+// var quizItemAnswer = [];
+// quizItemAnswer[1 - 1] = ['Anthony rides the ferry to work', 'YES', ''];
+// quizItemAnswer[2 - 1] = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
+// quizItemAnswer[3 - 1] = ['Anthony studied abroad in China', 'YES', ''];
+// quizItemAnswer[4 - 1] = ['Anthony works in Global Transportation', 'YES', ''];
+// quizItemAnswer[5 - 1] = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
+// quizItemAnswer[6 - 1] = ['Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
 console.log(quizItemAnswer);
 console.log(quizItemAnswer.length);
 
@@ -227,10 +248,10 @@ console.log(quizItemAnswer6);*/
 }*/
 
 //START QUIZ 7, WITH SIX USER ATTEMPTS AT GUESSING SOME FAVORITE FOODS HOUSED IN ARRAYS
-var quizItemAnswer7 = ['QUESADILLAS', 'STEAK SALAD', 'SMOKED SALMON', 'STRAWBERRIES', 'ICECREAM', 'OATMEAL COOKIES', 'TAMALES', 'POZOLE', 'BRATWURST', 'SHEPHERDS PIE'];
+//var quizItemAnswer7 = ['QUESADILLAS', 'STEAK SALAD', 'SMOKED SALMON', 'STRAWBERRIES', 'ICECREAM', 'OATMEAL COOKIES', 'TAMALES', 'POZOLE', 'BRATWURST', 'SHEPHERDS PIE'];//BRANCHFINAL
 
 for (var i = 0; i < 7; i++) {
-  var inputResult = prompt('Try and guess one of my favorite foods!');
+  //var inputResult = prompt('Try and guess one of my favorite foods!');//BRANCHFINAL
 
   //console.log(inputResult);
 
@@ -244,7 +265,7 @@ for (var i = 0; i < 7; i++) {
 }
 //END QUIZ 7
 console.log('masterCorrect' + masterCorrect);
-console.log('arrayCorrect' + arrayCorrect)
+console.log('arrayCorrect' + arrayCorrect);
 masterCorrect = masterCorrect + arrayCorrect;//ADD TOGETHER ALL CORRECT QUIZ RESPONSES; FROM YES/NO, NUMBER GUESSING, AND GUESSING FAVORITE FOOD ITEMS
 console.log('masterCorrect after sum' + masterCorrect);
 
@@ -255,3 +276,27 @@ if (userName === '') {
   } else {
   alert('Mahalo, ' + userName + ', thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7[0].valueOf() + ", " + quizItemAnswer7[1].valueOf() + ", " + quizItemAnswer7[2].valueOf() + ", " + quizItemAnswer7[3].valueOf() + ", " + quizItemAnswer7[4].valueOf() + ", " + quizItemAnswer7[5].valueOf() + ", " + quizItemAnswer7[6].valueOf() + ", " + quizItemAnswer7[7].valueOf() + ", " + quizItemAnswer7[8].valueOf() + ", " + quizItemAnswer7[9].valueOf() + ".");
 }
+
+/*BOBBY JOE'S QUESTION
+loop1: 
+for (var q = 0; q < 6; q++) {//UPPER 'FOR LOOP' FOR CYCLING THRU 6 QUESTIONS
+  var uInput = prompt('what number?');
+  var counter = 0;//DECLARE 'COUNTER'; FOR TASK OF BREAKING OUT LOWER 'FOR LOOP', CONTINUING UPPER FOR LOOP ONCE LOWER LOOP COMPLETES ITS CYCLE--THE LOWER LOOP WILL CONTINUE AFTER 'COUNTER = 2'; BUT WILL NOT 'RETURN' TO ALERT METHOD. IMPORTANT TO UNDERSTAND THAT 'COUNTER' WILL GET '0' AT 132 ONCE UPPER FOR LOOP CONTINUES ITS CYCLE.
+  array = [1, 2, 3];
+  for (var index = 0; index < array.length; index++) {  //LOWER 'FOR LOOP' FOR CYCLING THRU ARRAY CONTENTS/INDEXES
+    counter = 0;  
+  //console.log(uInput, array[index].toString());
+    if (uInput == array[index].toString()) {
+      console.log('great');
+      //counter = 2;//'COUNTER' GETS '2' WILL 'BREAK' FLOW OUT OF LOWER 'FOR LOOP'S ALERT METHOD,
+      break loop1;
+    } else if (counter < 1) {
+      counter = 2;//'COUNTER' GETS '2' WILL 'BREAK' FLOW OUT OF LOWER 'FOR LOOP'S ALERT METHOD, IT WILL COMPLETE CYCLE THRU LOWER ARRAY
+      alert(q);
+      console.log('no');
+    } else {
+      console.log('else exit')
+    }
+  }
+}*/
+

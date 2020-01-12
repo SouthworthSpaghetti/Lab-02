@@ -49,7 +49,7 @@ h1 {
   float: left;
   font-size: 27px;
   margin-left: 15px;
-    margin-top: 44px;
+  margin-top: 44px;
 }
 
 #contentC {
@@ -59,10 +59,10 @@ h1 {
   border: 5px solid lightcoral;
   padding: 13px;
   margin: 5px;
-    float: left;
+  float: left;
   font-size: 22px;
-    margin-left: 15px;
-    margin-top: 33px;
+  margin-left: 15px;
+  margin-top: 33px;
 }
 
 #contentD {
@@ -74,8 +74,8 @@ h1 {
   margin: 5px;
   float: left;
   font-size: 26px;
-    margin-left: 27px;
-    margin-top: 27px;
+  margin-left: 27px;
+  margin-top: 27px;
 }
 
 hgroup {
