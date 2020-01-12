@@ -17,7 +17,9 @@ var quizItemAnswer5 = ['YesNo', 'The Highest Sea Cliffs in the world are in Alas
 var quizItemAnswer6 = ['OneOfNumber', 'Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
 var quizItemAnswer7 = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
 
-callQuiz(quizItemAnswer0);//Iniate quiz by passing array of Quiz Items
+//quizItemAnswer0[3] = callQuiz(quizItemAnswer0);//Iniate quiz by passing array of Quiz Items
+quizItemAnswer1[3] = callQuiz(quizItemAnswer1)
+console.log(quizItemAnswer1[3]);
 
 function callQuiz(quizKeyArray){
   var gameMeta = quizKeyArray[0];//Quiz Item element0 'gameMeta' confirms which of the four quizes relates to the Quiz Items
@@ -45,25 +47,40 @@ function callQuiz(quizKeyArray){
 }//end callQuiz function
 
 function Auth(quizKeyArray){
-  do {
+  do {//LOOP REQUIRES INPUT HERE
     quizKeyArray[3] = prompt(quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
   } while (quizKeyArray[3] === '');
   alert('Aloha, ' + quizKeyArray[3] + ', welcome to this website. Thank you for stopping by.');
+  return quizKeyArray[3];
 }//end Auth function
 
 function YesNo(quizKeyArray) {
-  console.log(quizKeyArray);
-  return
+  console.log('YesNo');
+  quizKeyArray[3] = prompt(quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
+
+  if (quizKeyArray[2].toUpperCase() === quizKeyArray[3].toUpperCase()) {
+    //console.log('sucessA');
+    masterCorrect++;
+    alert('Good job, you answered correctly.');
+  } else if (quizKeyArray[2].charAt(0).toUpperCase() === quizKeyArray[3].toUpperCase()) {
+    //console.log('sucessB');
+    masterCorrect++;
+    alert('Good job, you answered correctly.');
+  } else {
+    //console.log('bad');
+    alert('That was close! But incorrect.');
+  }
+  return quizKeyArray[3];
 }//end YesNo function
 
 function OneOfNumber(quizKeyArray) {
   console.log(quizKeyArray);
-  return
+  return quizKeyArray[3];
 }//end OneOfNumber function
 
 function OneOfMany(quizKeyArray) {
   console.log(quizKeyArray);
-  return
+  return quizKeyArray[3];
 }//end OneOfMany function
 
 // var quizItemAnswer = [];
