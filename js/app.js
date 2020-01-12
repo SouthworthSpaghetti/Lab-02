@@ -18,8 +18,8 @@ var quizItemAnswer6 = ['OneOfNumber', 'Guess a number between 0 and 100', x, '']
 var quizItemAnswer7 = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
 
 //quizItemAnswer0[3] = callQuiz(quizItemAnswer0);//Iniate quiz by passing array of Quiz Items
-quizItemAnswer1[3] = callQuiz(quizItemAnswer1)
-console.log(quizItemAnswer1[3]);
+callQuiz(quizItemAnswer6)
+console.log(quizItemAnswer6[3]);
 
 function callQuiz(quizKeyArray){
   var gameMeta = quizKeyArray[0];//Quiz Item element0 'gameMeta' confirms which of the four quizes relates to the Quiz Items
@@ -51,11 +51,11 @@ function Auth(quizKeyArray){
     quizKeyArray[3] = prompt(quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
   } while (quizKeyArray[3] === '');
   alert('Aloha, ' + quizKeyArray[3] + ', welcome to this website. Thank you for stopping by.');
-  return quizKeyArray[3];
+  return quizKeyArray[3];//RETURN TO STORE USER INPUT
 }//end Auth function
 
 function YesNo(quizKeyArray) {
-  console.log('YesNo');
+  //console.log('YesNo');
   quizKeyArray[3] = prompt(quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
 
   if (quizKeyArray[2].toUpperCase() === quizKeyArray[3].toUpperCase()) {
@@ -70,17 +70,37 @@ function YesNo(quizKeyArray) {
     //console.log('bad');
     alert('That was close! But incorrect.');
   }
-  return quizKeyArray[3];
 }//end YesNo function
 
 function OneOfNumber(quizKeyArray) {
-  console.log(quizKeyArray);
-  return quizKeyArray[3];
+  console.log(OneOfNumber);
+  for (var j = 0; j < 4; j++) {//FOUR USER PROMPTS, UNLESS RANDOM NUMBER 'x' IS INPUTED
+    quizKeyArray[3] = Number(prompt(quizKeyArray[1]));//ONLY THE LAST USER INPUT IS STORED; A FEW ATTEMPT MADE AT STORING ALL USER INPUTS, AND REQUIRES MORE CODING TO COMPLETE
+    //6 QUIZ RESULTS ALERT
+    if (quizKeyArray[2] === quizKeyArray[3]) {
+      //console.log('sucessA');
+      masterCorrect++;
+      j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
+      alert('Good job, you (suprisingly) answered correctly.');
+    } else if (quizKeyArray[2] > quizKeyArray[3]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
+      //console.log('sucessB');
+      masterCorrect++;
+      alert('Good guess, but your answer is too low.');
+    } else if (quizKeyArray[2] < quizKeyArray[3]) {//ALERTS USER IF THEIR GUESS IS TOO HIGH
+      //console.log('bad');
+      alert('Good guess, but your answer is too high.');
+    } else {
+      alert('Please try and input a number, again.');//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
+    }
+  }
+  if (quizKeyArray[2] !== quizKeyArray[3]) {//AFTER ALL ATTEMPTS, ALERT USER OF CORRECT ANSWER
+    alert('The correct answer is ' + x);
+  }
 }//end OneOfNumber function
 
 function OneOfMany(quizKeyArray) {
   console.log(quizKeyArray);
-  return quizKeyArray[3];
+  return quizKeyArray[3];//RETURN TO STORE USER INPUT
 }//end OneOfMany function
 
 // var quizItemAnswer = [];
@@ -140,91 +160,91 @@ for (var i = 0; i < quizItemAnswer.length; i++){
 */
 
 
-//1 QUIZ QUESTION
-quizItemAnswer1[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer1[0]);//CORRECT ANSWER IS: Y/YES
-//1 QUIZ RESULTS ALERT
-if (quizItemAnswer1[1].toUpperCase() === quizItemAnswer1[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer1[1].charAt(0).toUpperCase() === quizItemAnswer1[2].toUpperCase()){
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else{
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 1
+// //1 QUIZ QUESTION
+// quizItemAnswer1[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer1[0]);//CORRECT ANSWER IS: Y/YES
+// //1 QUIZ RESULTS ALERT
+// if (quizItemAnswer1[1].toUpperCase() === quizItemAnswer1[2].toUpperCase()) {
+//   //console.log('sucessA');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else if (quizItemAnswer1[1].charAt(0).toUpperCase() === quizItemAnswer1[2].toUpperCase()){
+//   //console.log('sucessB');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else{
+//   //console.log('bad');
+//   alert('That was close! But incorrect.');
+// }
+// //END QUIZ 1
 
 
-//2 QUIZ QUESTION
-quizItemAnswer2[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer2[0]);//CORRECT ANSWER IS: N/NO
-//2 QUIZ RESULTS ALERT
-if (quizItemAnswer2[1].toUpperCase() === quizItemAnswer2[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer2[1].charAt(0).toUpperCase() === quizItemAnswer2[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 2
+// //2 QUIZ QUESTION
+// quizItemAnswer2[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer2[0]);//CORRECT ANSWER IS: N/NO
+// //2 QUIZ RESULTS ALERT
+// if (quizItemAnswer2[1].toUpperCase() === quizItemAnswer2[2].toUpperCase()) {
+//   //console.log('sucessA');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else if (quizItemAnswer2[1].charAt(0).toUpperCase() === quizItemAnswer2[2].toUpperCase()) {
+//   //console.log('sucessB');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else {
+//   //console.log('bad');
+//   alert('That was close! But incorrect.');
+// }
+// //END QUIZ 2
 
-//3 QUIZ QUESTION
-quizItemAnswer3[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer3[0]);//CORRECT ANSWER IS: Y/YES
-//3 QUIZ RESULTS ALERT
-if (quizItemAnswer3[1].toUpperCase() === quizItemAnswer3[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer3[1].charAt(0).toUpperCase() === quizItemAnswer3[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 3
+// //3 QUIZ QUESTION
+// quizItemAnswer3[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer3[0]);//CORRECT ANSWER IS: Y/YES
+// //3 QUIZ RESULTS ALERT
+// if (quizItemAnswer3[1].toUpperCase() === quizItemAnswer3[2].toUpperCase()) {
+//   //console.log('sucessA');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else if (quizItemAnswer3[1].charAt(0).toUpperCase() === quizItemAnswer3[2].toUpperCase()) {
+//   //console.log('sucessB');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else {
+//   //console.log('bad');
+//   alert('That was close! But incorrect.');
+// }
+// //END QUIZ 3
 
-//4 QUIZ QUESTION
-quizItemAnswer4[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer4[0]);//CORRECT ANSWER IS: Y/YES
-//4 QUIZ RESULTS ALERT
-if (quizItemAnswer4[1].toUpperCase() === quizItemAnswer4[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer4[1].charAt(0).toUpperCase() === quizItemAnswer4[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 4
+// //4 QUIZ QUESTION
+// quizItemAnswer4[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer4[0]);//CORRECT ANSWER IS: Y/YES
+// //4 QUIZ RESULTS ALERT
+// if (quizItemAnswer4[1].toUpperCase() === quizItemAnswer4[2].toUpperCase()) {
+//   //console.log('sucessA');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else if (quizItemAnswer4[1].charAt(0).toUpperCase() === quizItemAnswer4[2].toUpperCase()) {
+//   //console.log('sucessB');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else {
+//   //console.log('bad');
+//   alert('That was close! But incorrect.');
+// }
+// //END QUIZ 4
 
-//5 QUIZ QUESTION
-quizItemAnswer5[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer5[0]);//CORRECT ANSWER IS: N/NO
-//5 QUIZ RESULTS ALERT
-if (quizItemAnswer5[1].toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer5[1].charAt(0).toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 5
+// //5 QUIZ QUESTION
+// quizItemAnswer5[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer5[0]);//CORRECT ANSWER IS: N/NO
+// //5 QUIZ RESULTS ALERT
+// if (quizItemAnswer5[1].toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
+//   //console.log('sucessA');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else if (quizItemAnswer5[1].charAt(0).toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
+//   //console.log('sucessB');
+//   masterCorrect++;
+//   alert('Good job, you answered correctly.');
+// } else {
+//   //console.log('bad');
+//   alert('That was close! But incorrect.');
+// }
+// //END QUIZ 5//BRANCHFINAL
 
 //6 QUIZ QUESTION, WITH FOUR USER ATTEMPTS AT GUESSING THE RANDOM NUMBER STORED IN VARIABLE 'x'
 for(var j = 0; j < 4; j++){
