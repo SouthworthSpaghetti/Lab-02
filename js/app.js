@@ -5,21 +5,21 @@ var arrayCorrect = 0//arrayCorrect counter in Quiz 7
 var x = Math.round(Math.random() * 99);//RANDOM NUMBER GENERATOR
 var OneOfManyArray = ['quesadillas', 'steak salad', 'salmon', 'strawberries', 'icecream', 'cookies', 'tamales', 'pozole', 'bratwurst', 'shepherds pie'];
 
-// var userName = prompt('What is your name?');//USER GREETING//BRANCHFINAL
-
+var quizItemData = [];
 //QUIZ 1- 6 DETAILS; WHERE INDEX#2 IS RESERVED FOR USER INPUT
-var quizItemAnswer0 = ['Auth', 'What is your name?', '', ''];
-var quizItemAnswer1 = ['YesNo', 'Anthony rides the ferry to work', 'YES', ''];
-var quizItemAnswer2 = ['YesNo', 'hen hau translates to very bad in Mandarin', 'NO', ''];
-var quizItemAnswer3 = ['YesNo', 'Anthony studied abroad in China', 'YES', ''];
-var quizItemAnswer4 = ['YesNo', 'Anthony works in Global Transportation', 'YES', ''];
-var quizItemAnswer5 = ['YesNo', 'The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
-var quizItemAnswer6 = ['OneOfNumber', 'Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
-var quizItemAnswer7 = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
+quizItemData[0] = ['Auth', 'What is your name?', '', ''];
+quizItemData[1] = ['YesNo', 'Anthony rides the ferry to work', 'YES', ''];
+quizItemData[2] = ['YesNo', 'hen hau translates to very bad in Mandarin', 'NO', ''];
+quizItemData[3] = ['YesNo', 'Anthony studied abroad in China', 'YES', ''];
+quizItemData[4] = ['YesNo', 'Anthony works in Global Transportation', 'YES', ''];
+quizItemData[5] = ['YesNo', 'The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
+quizItemData[6] = ['OneOfNumber', 'Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+quizItemData[7] = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
 
 //quizItemAnswer0[3] = callQuiz(quizItemAnswer0);//Iniate quiz by passing array of Quiz Items
-callQuiz(quizItemAnswer7);
-console.log(quizItemAnswer7[3]);
+for(var k = 0; k < quizItemData.length; k++){
+callQuiz(quizItemData[k]);
+}
 
 function callQuiz(quizKeyArray){
   var gameMeta = quizKeyArray[0];//Quiz Item element0 'gameMeta' confirms which of the four quizes relates to the Quiz Items
@@ -56,28 +56,34 @@ function Auth(quizKeyArray){
 
 function YesNo(quizKeyArray) {
   //console.log('YesNo');
-  quizKeyArray[3] = prompt(quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
-
+  quizKeyArray[3] = prompt('Yes (Y)/No (N)--' + quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
   if (quizKeyArray[2].toUpperCase() === quizKeyArray[3].toUpperCase()) {
     //console.log('sucessA');
     masterCorrect++;
-    alert('Good job, you answered correctly.');
+    alert('Good job, you are correct!');
   } else if (quizKeyArray[2].charAt(0).toUpperCase() === quizKeyArray[3].toUpperCase()) {
     //console.log('sucessB');
     masterCorrect++;
-    alert('Good job, you answered correctly.');
+    alert('Good job, you are correct!');
   } else {
     //console.log('bad');
-    alert('That was close! But incorrect.');
+    alert('That was close. But incorrect.');
   }
 }//end YesNo function
 
 function OneOfNumber(quizKeyArray) {
   console.log(OneOfNumber);
-  for (var j = 0; j < 4; j++) {//FOUR USER PROMPTS, UNLESS RANDOM NUMBER 'x' IS INPUTED
-    quizKeyArray[3] = Number(prompt(quizKeyArray[1]));//ONLY THE LAST USER INPUT IS STORED; A FEW ATTEMPT MADE AT STORING ALL USER INPUTS, AND REQUIRES MORE CODING TO COMPLETE
-    //6 QUIZ RESULTS ALERT
-    if (quizKeyArray[2] === quizKeyArray[3]) {
+  for (var j = 0; j < 4; j++) {//FOUR USER PROMPTS, UNLESS RANDOM NUMBER 'x' IS INPUTED //ONLY THE LAST USER INPUT IS STORED; A FEW ATTEMPT MADE AT STORING ALL USER INPUTS, AND REQUIRES MORE CODING TO COMPLETE
+    if (j < 1) { quizKeyArray[3] = Number(prompt(quizKeyArray[1] + x + ' You have four chances to guess correctly.'));
+  }
+  
+  // else if (j > 3){
+  //   quizKeyArray[3] = prompt(quizKeyArray[1] + ' You have one final chance to guess.');
+  // } else {
+  //   quizKeyArray[3] = prompt(quizKeyArray[1] + ' You have ' + (4 - j) + ' more chances to guess correctly.');
+  // }
+
+    if (quizKeyArray[2]) === quizKeyArray[3]) {
       //console.log('sucessA');
       masterCorrect++;
       j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
