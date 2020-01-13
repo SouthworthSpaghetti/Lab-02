@@ -3,7 +3,7 @@
 var masterCorrect = 0;//int counter for correct user input; added to arrayCorrect counter in Quiz 7, and to be presented at the final, closing alert
 var arrayCorrect = 0//arrayCorrect counter in Quiz 7
 var x = Math.round(Math.random() * 99);//RANDOM NUMBER GENERATOR
-var OneOfManyArray = ['QUESADILLAS', 'STEAK SALAD', 'SMOKED SALMON', 'STRAWBERRIES', 'ICECREAM', 'OATMEAL COOKIES', 'TAMALES', 'POZOLE', 'BRATWURST', 'SHEPHERDS PIE'];
+var OneOfManyArray = ['quesadillas', 'steak salad', 'salmon', 'strawberries', 'icecream', 'cookies', 'tamales', 'pozole', 'bratwurst', 'shepherds pie'];
 
 // var userName = prompt('What is your name?');//USER GREETING//BRANCHFINAL
 
@@ -18,8 +18,8 @@ var quizItemAnswer6 = ['OneOfNumber', 'Guess a number between 0 and 100', x, '']
 var quizItemAnswer7 = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
 
 //quizItemAnswer0[3] = callQuiz(quizItemAnswer0);//Iniate quiz by passing array of Quiz Items
-callQuiz(quizItemAnswer6)
-console.log(quizItemAnswer6[3]);
+callQuiz(quizItemAnswer7);
+console.log(quizItemAnswer7[3]);
 
 function callQuiz(quizKeyArray){
   var gameMeta = quizKeyArray[0];//Quiz Item element0 'gameMeta' confirms which of the four quizes relates to the Quiz Items
@@ -84,7 +84,6 @@ function OneOfNumber(quizKeyArray) {
       alert('Good job, you (suprisingly) answered correctly.');
     } else if (quizKeyArray[2] > quizKeyArray[3]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
       //console.log('sucessB');
-      masterCorrect++;
       alert('Good guess, but your answer is too low.');
     } else if (quizKeyArray[2] < quizKeyArray[3]) {//ALERTS USER IF THEIR GUESS IS TOO HIGH
       //console.log('bad');
@@ -98,9 +97,32 @@ function OneOfNumber(quizKeyArray) {
   }
 }//end OneOfNumber function
 
-function OneOfMany(quizKeyArray) {
-  console.log(quizKeyArray);
-  return quizKeyArray[3];//RETURN TO STORE USER INPUT
+function OneOfMany(quizKeyArray) {  
+  for (var i = 7; i > 0; i--) {
+    //console.log(inputResult);
+    if (i > 6){quizKeyArray[3] = prompt(quizKeyArray[1] + ' You have ' + i + ' chances to guess one item correctly.');
+    } else {
+      quizKeyArray[3] = prompt('Yum, I guess I can see why you like ' + quizKeyArray[3] + '. But its not one of my favorites. You have ' + i + ' chances left to guess one item correctly.');
+    }
+    
+    for (var j = 0; j < quizKeyArray[2].length; j++){
+      if (quizKeyArray[3].toUpperCase() === quizKeyArray[2][j].toUpperCase()) {
+        alert('Good job, you guessed one of my favorite foods correctly. I love to eat ' + quizKeyArray[2][j] + '.');
+        masterCorrect++;
+        j = quizKeyArray[2].length;
+        i = 0;
+      } 
+    }
+  }
+}
+//END QUIZ 7
+
+
+
+
+
+
+
 }//end OneOfMany function
 
 // var quizItemAnswer = [];
@@ -247,29 +269,29 @@ for (var i = 0; i < quizItemAnswer.length; i++){
 // //END QUIZ 5//BRANCHFINAL
 
 //6 QUIZ QUESTION, WITH FOUR USER ATTEMPTS AT GUESSING THE RANDOM NUMBER STORED IN VARIABLE 'x'
-for(var j = 0; j < 4; j++){
-  quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS STORED IN VARIABLE 'x'
-  //6 QUIZ RESULTS ALERT
-  if (quizItemAnswer6[1] === quizItemAnswer6[2]) {
-    //console.log('sucessA');
-    masterCorrect++;
-    j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
-    alert('Good job, you (suprisingly) answered correctly.');
-  } else if (quizItemAnswer6[1] > quizItemAnswer6[2]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
-    //console.log('sucessB');
-    masterCorrect++;
-    alert('Good guess, but your answer is too low.');
-  } else if (quizItemAnswer6[1] < quizItemAnswer6[2]){//ALERTS USER IF THEIR GUESS IS TOO HIGH
-    //console.log('bad');
-    alert('Good guess, but your answer is too high.');
-  } else {
-    alert('Please try and input a number, again.');//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
-  }
-}
-if (quizItemAnswer6[1] !== quizItemAnswer6[2]) {//AFTER ALL ATTEMPTS, ALERT USER OF CORRECT ANSWER
-  alert('The correct answer is ' + x);
-}
-//END QUIZ 6
+// for(var j = 0; j < 4; j++){
+//   quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS STORED IN VARIABLE 'x'
+//   //6 QUIZ RESULTS ALERT
+//   if (quizItemAnswer6[1] === quizItemAnswer6[2]) {
+//     //console.log('sucessA');
+//     masterCorrect++;
+//     j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
+//     alert('Good job, you (suprisingly) answered correctly.');
+//   } else if (quizItemAnswer6[1] > quizItemAnswer6[2]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
+//     //console.log('sucessB');
+//     masterCorrect++;
+//     alert('Good guess, but your answer is too low.');
+//   } else if (quizItemAnswer6[1] < quizItemAnswer6[2]){//ALERTS USER IF THEIR GUESS IS TOO HIGH
+//     //console.log('bad');
+//     alert('Good guess, but your answer is too high.');
+//   } else {
+//     alert('Please try and input a number, again.');//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
+//   }
+// }
+// if (quizItemAnswer6[1] !== quizItemAnswer6[2]) {//AFTER ALL ATTEMPTS, ALERT USER OF CORRECT ANSWER
+//   alert('The correct answer is ' + x);
+// }
+// //END QUIZ 6//BRANCHFINAL
 
 
 
@@ -327,6 +349,11 @@ for (var i = 0; i < 7; i++) {
     alert('Yum, I guess I can see why you like ' + inputResult + '. But its not one of my favorites.');
 }
 //END QUIZ 7
+
+
+
+
+
 console.log('masterCorrect' + masterCorrect);
 console.log('arrayCorrect' + arrayCorrect);
 masterCorrect = masterCorrect + arrayCorrect;//ADD TOGETHER ALL CORRECT QUIZ RESPONSES; FROM YES/NO, NUMBER GUESSING, AND GUESSING FAVORITE FOOD ITEMS
