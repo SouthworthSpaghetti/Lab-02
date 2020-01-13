@@ -1,326 +1,110 @@
 'use strict';
 
-var masterCorrect = 0;//int counter for correct user input; added to arrayCorrect counter in Quiz 7, and to be presented at the final, closing alert
-var arrayCorrect = 0//arrayCorrect counter in Quiz 7
-var x = Math.round(Math.random() * 99);//RANDOM NUMBER GENERATOR
-//var y = Math.round(x);
-console.log(x);
+var masterCorrect = 0;//int counter for correct user input
+var x = Math.round(Math.random() * 99);//ONE-TIME RANDOM NUMBER GENERATOR
+var zipUp = '';
+var OneOfManyArray = ['quesadillas', 'steak salad', 'salmon', 'strawberries', 'icecream', 'cookies', 'tamales', 'pozole', 'bratwurst', 'shepherds pie'];
 
-var userName = prompt('What is your name?');//USER GREETING
+var quizItemData = [];//WHERE ELEMENT3 IS RESERVED FOR USER INPUT
+quizItemData[0] = ['Auth', 'What is your name?', '', ''];
+quizItemData[1] = ['YesNo', 'Anthony rides the ferry to work', 'YES', ''];
+quizItemData[2] = ['YesNo', 'hen hau translates to very bad in Mandarin', 'NO', ''];
+quizItemData[3] = ['YesNo', 'Anthony studied abroad in China', 'YES', ''];
+quizItemData[4] = ['YesNo', 'Anthony works in Global Transportation', 'YES', ''];
+quizItemData[5] = ['YesNo', 'The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
+quizItemData[6] = ['OneOfNumber', 'Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
+quizItemData[7] = ['OneOfMany', 'Try and guess one of my favorite foods!', OneOfManyArray, ''];
 
-//QUIZ 1- 6 DETAILS; WHERE INDEX#2 IS RESERVED FOR USER INPUT
-
-
-var quizItemAnswer1 = ['Anthony rides the ferry to work', 'YES', ''];
-var quizItemAnswer2 = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
-var quizItemAnswer3 = ['Anthony studied abroad in China', 'YES', ''];
-var quizItemAnswer4 = ['Anthony works in Global Transportation', 'YES', ''];
-var quizItemAnswer5 = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
-//var quizItemAnswer6 = ['Guess a number between 0 and 100', x, ''];
-var quizItemAnswer6 = ['Guess a number between 0 and 100/' + x, x, ''];
-//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
-
-
-
-
-
-/*
-var quizItemAnswer = [];
-quizItemAnswer[1 - 1] = ['Anthony rides the ferry to work', 'YES', ''];
-quizItemAnswer[2 - 1] = ['hen hau translates to very bad, in Mandarin', 'NO', ''];
-quizItemAnswer[3 - 1] = ['Anthony studied abroad in China', 'YES', ''];
-quizItemAnswer[4 - 1] = ['Anthony works in Global Transportation', 'YES', ''];
-quizItemAnswer[5 - 1] = ['The Highest Sea Cliffs in the world are in Alaska', 'NO', ''];
-quizItemAnswer[6 - 1] = ['Guess a number between 0 and 100', x, ''];//FOR TESTING IN CASE OF CORRECT USER INPUT ['Guess a number between 0 and 100/' + x, x, ''];
-console.log(quizItemAnswer);
-console.log(quizItemAnswer.length);
-
-//ARRAY ANSWERS TO BE <em> IN HTML DOCUMENT
-//var quizItemcontentA = 'Ferry';
-//var quizItemcontentBa = 'hen hau';
-//var quizItemcontentBb = 'China';
-//var quizItemcontentC = 'Global Transportation';
-//var quizItemcontentD = 'Highest Sea Cliffs In The World';
-*/
-
-var i = 1;//int counter for below code exit
-if (userName === ''){
-  do{
-    var userName = prompt('What is your name? What do your friends call you??');
-    i++;
-  } while(i<2);
-}else{
-  alert('Aloha, ' + userName + ', welcome to this website. Thank you for stopping by.');
-};
-
-/*
-//1 QUIZ QUESTION ARRAY ARRAY TEST LOOP
-for (var i = 0; i < quizItemAnswer.length; i++){
-  //console.log(i);
-  console.log(quizItemAnswer[[0, i]]);
-  //quizItemAnswer[[i][2]] = prompt('Yes (Y)/No (N)--' + quizItemAnswer[[i][0]]);//CORRECT ANSWER IS: Y/YES
-  //console.log(quizItemAnswer[[i][2]]);
-  //1 QUIZ RESULTS ALERT
-
+for (var k = 0; k < quizItemData.length; k++) {//Iniate pop-quiz by passing array of Quiz Items
+  callQuiz(quizItemData[k]);
 }
-/*
-  if (quizItemAnswer[i[1]].toUpperCase() === quizItemAnswer[i[2]].toUpperCase()) {
-    //console.log('sucessA');
-    masterCorrect++;
-    alert('Good job, you answered correctly.');
-  } else if (quizItemAnswer[i[1]].charAt(0).toUpperCase() === quizItemAnswer[i[2]].toUpperCase()) {
-    //console.log('sucessB');
-    masterCorrect++;
-    alert('Good job, you answered correctly.');
-  } else {
-    //console.log('bad');
-    alert('That was close! But incorrect.');
-  }
-
-
-//END QUIZ 1 ARRAY ARRAY TEST LOOP
-*/
-
-
-//inputs: <<quizItemAnswer1[2]<guess>>> ,quizItemAnswer1[0]<statement>,quizItemAnswer1[1]<answer>
-function quizAsker(statement, answer){
-  var guess = prompt('Yes (Y)/No (N)--' + statement);//CORRECT ANSWER IS: Y/YES
-  if (answer.toUpperCase() === guess.toUpperCase()) {
-    //console.log('sucessA');
-    //masterCorrect++;
-    alert('Good job, you answered correctly.');
-  } else if (answer.charAt(0).toUpperCase() === guess.toUpperCase()){
-    //console.log('sucessB');
-    //masterCorrect++;
-    alert('Good job, you answered correctly.');
-  } else{
-    //console.log('bad');
-    alert('That was close! But incorrect.');
-  }
-}
-
-
-quizAsker(quizItemAnswer1[0], quizItemAnswer1[1]);
-quizAsker(quizItemAnswer2[0], quizItemAnswer2[1]);
-quizAsker(quizItemAnswer3[0], quizItemAnswer3[1]);
-quizAsker(quizItemAnswer4[0], quizItemAnswer4[1]);
-quizAsker(quizItemAnswer5[0], quizItemAnswer5[1]);
-
-
-// //1 QUIZ QUESTION
-// quizItemAnswer1[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer1[0]);//CORRECT ANSWER IS: Y/YES
-// //1 QUIZ RESULTS ALERT
-// if (quizItemAnswer1[1].toUpperCase() === quizItemAnswer1[2].toUpperCase()) {
-//   //console.log('sucessA');
-//   masterCorrect++;
-//   alert('Good job, you answered correctly.');
-// } else if (quizItemAnswer1[1].charAt(0).toUpperCase() === quizItemAnswer1[2].toUpperCase()){
-//   //console.log('sucessB');
-//   masterCorrect++;
-//   alert('Good job, you answered correctly.');
-// } else{
-//   //console.log('bad');
-//   alert('That was close! But incorrect.');
-// }
-//END QUIZ 1
-/* morgan
-
-//2 QUIZ QUESTION
-quizItemAnswer2[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer2[0]);//CORRECT ANSWER IS: N/NO
-//2 QUIZ RESULTS ALERT
-if (quizItemAnswer2[1].toUpperCase() === quizItemAnswer2[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer2[1].charAt(0).toUpperCase() === quizItemAnswer2[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
+//Greeting goodbye
+if (quizItemData[0][3] === '') {
+  alert('Mahalo, you, thanks again for visiting. You answered ' + masterCorrect + ' of the pop-quiz items correctly. My top ten favorite foods are: ' + zipUp + ".");
 } else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 2
+  alert('Mahalo, ' + quizItemData[0][3] + ', thanks again for visiting. You answered ' + masterCorrect + ' of the pop-quiz items correctly. My top ten favorite foods are: ' + zipUp + ".");
+}//Greeting goodbye
 
-//3 QUIZ QUESTION
-quizItemAnswer3[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer3[0]);//CORRECT ANSWER IS: Y/YES
-//3 QUIZ RESULTS ALERT
-if (quizItemAnswer3[1].toUpperCase() === quizItemAnswer3[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer3[1].charAt(0).toUpperCase() === quizItemAnswer3[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 3
-
-//4 QUIZ QUESTION
-quizItemAnswer4[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer4[0]);//CORRECT ANSWER IS: Y/YES
-//4 QUIZ RESULTS ALERT
-if (quizItemAnswer4[1].toUpperCase() === quizItemAnswer4[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer4[1].charAt(0).toUpperCase() === quizItemAnswer4[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 4
-
-//5 QUIZ QUESTION
-quizItemAnswer5[2] = prompt('Yes (Y)/No (N)--' + quizItemAnswer5[0]);//CORRECT ANSWER IS: N/NO
-//5 QUIZ RESULTS ALERT
-if (quizItemAnswer5[1].toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
-  //console.log('sucessA');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else if (quizItemAnswer5[1].charAt(0).toUpperCase() === quizItemAnswer5[2].toUpperCase()) {
-  //console.log('sucessB');
-  masterCorrect++;
-  alert('Good job, you answered correctly.');
-} else {
-  //console.log('bad');
-  alert('That was close! But incorrect.');
-}
-//END QUIZ 5
-
-*/ //morgan
-
-//takes in 2 parameters: quizItemAnswer6[2], quizItemAnswer6[1]
-function numberCompare(guess, targetNumber){
-  if ( targetNumber === guess) {
-    //console.log('sucessA');
-    masterCorrect++;
-    j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
-    alert('Good job, you (suprisingly) answered correctly.');
-  } else if ( targetNumber > guess) {//ALERTS USER IF THEIR GUESS IS TOO LOW
-    //console.log('sucessB');
-    masterCorrect++;
-    alert('Good guess, but your answer is too low.');
-  } else if ( targetNumber < guess){//ALERTS USER IF THEIR GUESS IS TOO HIGH
-    //console.log('bad');
-    alert('Good guess, but your answer is too high.');
-  } else {
-    alert('Please try and input a number, again.');//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
-  }
-}
-
-
-//6 QUIZ QUESTION, WITH FOUR USER ATTEMPTS AT GUESSING THE RANDOM NUMBER STORED IN VARIABLE 'x'
-for(var j = 0; j < 4; j++){
-  quizItemAnswer6[2] = Number(prompt(quizItemAnswer6[0]));//CORRECT ANSWER IS STORED IN VARIABLE 'x'
-
-  numberCompare(quizItemAnswer6[2], quizItemAnswer6[1]);
-  //6 QUIZ RESULTS ALERT
-  // if (quizItemAnswer6[1] === quizItemAnswer6[2]) {
-  //   //console.log('sucessA');
-  //   masterCorrect++;
-  //   j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
-  //   alert('Good job, you (suprisingly) answered correctly.');
-  // } else if (quizItemAnswer6[1] > quizItemAnswer6[2]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
-  //   //console.log('sucessB');
-  //   masterCorrect++;
-  //   alert('Good guess, but your answer is too low.');
-  // } else if (quizItemAnswer6[1] < quizItemAnswer6[2]){//ALERTS USER IF THEIR GUESS IS TOO HIGH
-  //   //console.log('bad');
-  //   alert('Good guess, but your answer is too high.');
-  // } else {
-  //   alert('Please try and input a number, again.');//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
-  // }
-}
-if (quizItemAnswer6[1] !== quizItemAnswer6[2]) {//AFTER ALL ATTEMPTS, ALERT USER OF CORRECT ANSWER
-  alert('The correct answer is ' + x);
-}
-//END QUIZ 6
-
-
-
-
-
-
-/*console.log(quizItemAnswer1[1].charAt(0));
-console.log(quizItemAnswer1);
-console.log(quizItemAnswer2);
-console.log(quizItemAnswer3);
-console.log(quizItemAnswer4);
-console.log(quizItemAnswer5);
-console.log(quizItemAnswer6);*/
-
-/*switch(quizItemAnswerA.toUpperCase()){
-  case 'Y':
-    alert("That's correct.");
+function callQuiz(quizKeyArray){
+  var gameMeta = quizKeyArray[0];//Quiz Item element0 'gameMeta' confirms which of the four quizes relates to the Quiz Items
+  switch(gameMeta){
+  case('Auth')://Quiz Item 'gameMeta' initiates the 'Auth' quiz type function
+    Auth(quizKeyArray)
     break;
-  case 'YES':
-    alert("That's correct.");
+  case ('YesNo')://Quiz Item 'gameMeta' initiates the 'YesNo' quiz type function
+    YesNo(quizKeyArray)
     break;
-  case 'N':
-    alert("That's incorrect.");
+  case ('OneOfNumber')://Quiz Item 'gameMeta' initiates the 'OneOfNumber' quiz type function
+    OneOfNumber(quizKeyArray)
     break;
-  case 'NO':
-    alert("That's incorrect.");
+  case ('OneOfMany')://Quiz Item 'gameMeta' initiates the 'OneOfMany' quiz type function
+    OneOfMany(quizKeyArray)
     break;
   default:
-    alert("That doesn't make sense. But let's just move along.");
-      break;
-}*/
-//COMMENTED BELOW (AND CONSIDERING LOOPING THRU SWITCH ABOVE) I DO SOMETHING LIKE THIS IN VBA TO LOOP THRU MULTIPLE INSTANCES OF ARRAYS HERE. THE IDEA IS TO LOOP THRU QUIZ ANSWERS AND GENERATE MULTIPLE ALERTS TO USER ABOUT HOW THEY DID IN THEIR SCORE. ALL WITH MINIMAL CODE; where jk string value finds the arrays above.
-/*for (var j = 1; j < 6; j++){
-  var jk = 'quizItemAnswer' + j;
-  if (jk[1].toUpperCase === jk[2].toUpperCase){
-    alert('Good job, you answered correctly.');
-  }else
-    alert('That was close! But incorrect.');
-}*/
+    break;
+  }//end callQuiz switch
+}//end callQuiz function
 
-//START QUIZ 7, WITH SIX USER ATTEMPTS AT GUESSING SOME FAVORITE FOODS HOUSED IN ARRAYS
+function Auth(quizKeyArray){
+  do {//LOOP REQUIRES INPUT HERE
+    quizKeyArray[3] = prompt(quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
+  } while (quizKeyArray[3] === '');
+  alert('Aloha, ' + quizKeyArray[3] + ', welcome to this website. Thank you for stopping by.');
+}//end Auth function
 
-/* morgan
-var quizItemAnswer7 = [
-  'QUESADILLAS',
-  'STEAK SALAD',
-  'SMOKED SALMON',
-  'STRAWBERRIES',
-  'ICECREAM',
-  'OATMEAL COOKIES',
-  'TAMALES',
-  'POZOLE',
-  'BRATWURST',
-  'SHEPHERDS PIE'];
+function YesNo(quizKeyArray) {
+  quizKeyArray[3] = prompt('Yes (Y)/No (N)--' + quizKeyArray[1]);//Quiz Item element1 confirms text prompting user feedback
+  if (quizKeyArray[2].toUpperCase() === quizKeyArray[3].toUpperCase()) {
+    masterCorrect++;
+    alert('Good job, you are correct!');
+  } else if (quizKeyArray[2].charAt(0).toUpperCase() === quizKeyArray[3].toUpperCase()) {
+    masterCorrect++;
+    alert('Good job, you are correct!');
+  } else {
+    alert('That was close. But incorrect.');
+  }
+}//end YesNo function
 
-for (var i = 0; i < 7; i++) {
-  var inputResult = prompt('Try and guess one of my favorite foods!');
+function OneOfNumber(quizKeyArray) {
+  quizKeyArray[3] = Number(prompt(quizKeyArray[1] + x + ' You have four chances to guess correctly.'));//THREE MORE USER PROMPTS, UNLESS RANDOM NUMBER 'x' IS INPUTED //ONLY THE LAST USER INPUT IS STORED; A FEW ATTEMPT MADE AT STORING ALL USER INPUTS, AND REQUIRES MORE CODING TO COMPLETE
+  for (var j = 0; j < 3; j++) {
+    if (quizKeyArray[2] === quizKeyArray[3]) {
+      masterCorrect++;
+      j = 4;//EXIT FOR LOOP IF USER INPUT EQUALS THAT OF VARIABLE 'x'
+      alert('Good job, you (suprisingly) answered correctly.');
+    } else if (quizKeyArray[2] > quizKeyArray[3]) {//ALERTS USER IF THEIR GUESS IS TOO LOW
+      quizKeyArray[3] = Number(prompt('Good guess, but your answer is too low.'));
+    } else if (quizKeyArray[2] < quizKeyArray[3]) {//ALERTS USER IF THEIR GUESS IS TOO HIGH
+      quizKeyArray[3] = Number(prompt('Good guess, but your answer is too high.'));
+    } else {
+      quizKeyArray[3] = Number(prompt('Please try and input a number, again.'));//(OPTIONAL) ALERT IF USER INPUT NOT A NUMBER
+    }
+  }
+  if (quizKeyArray[2] !== quizKeyArray[3]) {//AFTER ALL FAILED ATTEMPTS, ALERT USER OF CORRECT ANSWER
+    alert('The correct number is ' + x);
+  }
+}//end OneOfNumber function
 
-  //console.log(inputResult);
-
-  if (quizItemAnswer7.includes(inputResult.toUpperCase())) {
-    console.log(arrayCorrect + 1);
-    arrayCorrect++;
-    i = 7;//EXIT FOR FOR LOOP IF ONE FOOD ITEM HOUSE IN ARRAY IS INPUTED BY USER
-    alert('Good job, you guessed ' + arrayCorrect + ' of my favorite foods correctly.');
-}else
-    alert('Yum, I guess I can see why you like ' + inputResult + '. But its not one of my favorites.');
-}
-//END QUIZ 7
-console.log('masterCorrect' + masterCorrect);
-console.log('arrayCorrect' + arrayCorrect)
-masterCorrect = masterCorrect + arrayCorrect;//ADD TOGETHER ALL CORRECT QUIZ RESPONSES; FROM YES/NO, NUMBER GUESSING, AND GUESSING FAVORITE FOOD ITEMS
-console.log('masterCorrect after sum' + masterCorrect);
-
-
-//Greeting goodbye
-if (userName === '') {
-  alert('Mahalo, you, thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7.join(' ,') + '.');
-} else {
-  alert('Mahalo, ' + userName + ', thanks again for visiting. You answered ' + masterCorrect + ' of the quiz questions correctly. And guessed ' + arrayCorrect + ' of my favorite foods. Here are my top ten favorite foods: ' + quizItemAnswer7.join(' ,') + '.');
-}
-
-*/ //morgan 
+function OneOfMany(quizKeyArray) {  
+  for (var i = 7; i > 0; i--) {
+    if (i > 6){quizKeyArray[3] = prompt(quizKeyArray[1] + ' You have ' + i + ' chances to guess one item correctly.');
+    } else {
+      quizKeyArray[3] = prompt('Yum, I guess I can see why you like ' + quizKeyArray[3] + '. But its not one of my favorites. You have ' + i + ' chances left to guess one item correctly.');
+    }
+    for (var j = 0; j < quizKeyArray[2].length; j++){
+      if (quizKeyArray[3].toUpperCase() === quizKeyArray[2][j].toUpperCase()) {
+        alert('Good job, you guessed one of my favorite foods correctly. I love to eat ' + quizKeyArray[2][j] + '.');
+        masterCorrect++;
+        j = quizKeyArray[2].length;
+        i = 0;
+      } 
+    }
+  }
+  var popReplace = quizKeyArray[2].length - 1;//FUN FOR UNZIPPING ARRAY INTO DESIRED STRING FORMAT
+  var zipArrayOmega = quizKeyArray[2][popReplace];//GETS THE LAST ELEMENT
+  var zipArrayAlpha = quizKeyArray[2][0];//GETS THE FIRST ELEMENT
+  for (var i = 1; i < quizKeyArray[2].length - 1; i++) {
+    zipArrayAlpha = zipArrayAlpha + ', ' + quizKeyArray[2][i];
+  }
+  zipUp = zipArrayAlpha + ' and ' + zipArrayOmega;//zipUp as Global Variable
+  }
